@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FuncionarioController;
 
 
-Route::get('/', [AdminController::class, 'index']);
+Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/funcionario', [FuncionarioController::class, 'index']);
