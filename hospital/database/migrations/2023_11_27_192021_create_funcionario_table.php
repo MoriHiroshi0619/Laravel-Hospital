@@ -13,8 +13,15 @@ return new class extends Migration
     {
         Schema::create('funcionario', function (Blueprint $table) {
             $table->id();
-            $table->string('p_nome');
             $table->timestamps();
+            $table->string('contato', 11)->nullable(false);
+            $table->string('cpf', 11)->unique()->nullable(false);
+            $table->string('pnome', 30)->nullable(false);
+            $table->string('unome', 30)->nullable(false);
+            $table->text('endereco')->nullable(true);
+            $table->date('data_nasc')->nullable(false);
+            $table->string('senha')->nullable(false);
+            $table->string('cargo', 20)->nullable(false);
         });
     }
 
