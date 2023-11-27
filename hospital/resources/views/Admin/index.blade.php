@@ -4,5 +4,6 @@
     
 @section('content')
 
+<h1>Bem vindo admin</h1>
 
 @endsection
