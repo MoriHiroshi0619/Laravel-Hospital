@@ -42,8 +42,12 @@
                 </div>
             </nav>
         </header>
-
-        @yield('content')
+        <main class="conainer">
+            @if(session('msg'))
+                <p class="msg">{{session('msg')}}</p>
+            @endif
+            @yield('content')
+        </main>
         <div class="p-4 invisible"></div>
         <footer class="p-2 bg-light text-center fixed-bottom">
             <p>Sistema Hospitalar &copy; 2023</p>

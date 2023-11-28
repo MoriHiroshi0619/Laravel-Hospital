@@ -56,4 +56,23 @@
     </form>
 </div>
 
+<script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(event) {
+        const cpfInput = document.getElementById('cpf');
+        const cpfValue = cpfInput.value.trim();
+        const contato = document.getElementById('contato');
+        const contatoValue = contato.value.trim();
+        if (isNaN(cpfValue)) {
+            event.preventDefault(); 
+            alert('O CPF deve conter apenas números.');
+        }
+        if(isNaN(contatoValue)){
+            event.preventDefault(); 
+            alert('O Contato deve conter apenas números.');
+        }
+    });
+</script>
+
+
 @endsection
