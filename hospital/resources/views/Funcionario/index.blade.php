@@ -15,13 +15,8 @@
                 <tr>
                     <th>Primeiro Nome</th>
                     <th>Ultimo Nome</th>
-                    <th>Sexo</th>
-                    <th>Contato</th>
-                    <th>CPF</th>
-                    <th>Endereço</th>
-                    <th>Data de Nascimento</th>
                     <th>Cargo</th>
-                    <th>Ultima Atualização</th>
+                    <th>Saber mais</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,13 +24,8 @@
                     <tr>
                         <th>{{$f->pnome}}</th>
                         <th>{{$f->unome}}</th>
-                        <th>{{$f->sexo}}</th>
-                        <th>{{$f->contato}}</th>
-                        <th>{{$f->cpf}}</th>
-                        <th>{{$f->endereco}}</th>
-                        <th>{{$f->data_nasc}}</th>
                         <th>{{$f->cargo}}</th>
-                        <th>{{$f->updated_at}}</th>
+                        <th><a href="/funcionario/{{ $f->id }}" class="nav-link"><i class="bi bi-info-square-fill" style="font-size: 2rem"></i></a></th>
                     </tr>
                 @endforeach
             </tbody>

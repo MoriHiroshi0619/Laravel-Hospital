@@ -19,6 +19,10 @@
         {{-- Ion Icons --}}
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" defer></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" defer></script>
+
+        {{-- Bootstrap Icon--}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
     </head>
     <body>
         <header class="sticky-top">
@@ -45,6 +49,9 @@
         <main class="conainer">
             @if(session('msg'))
                 <p class="msg">{{session('msg')}}</p>
+            @endif
+            @if(session('error'))
+                <p class="error">{{session('error')}}</p>
             @endif
             @yield('content')
         </main>

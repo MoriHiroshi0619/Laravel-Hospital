@@ -8,7 +8,6 @@ use App\Models\Funcionario;
 class FuncionarioController extends Controller
 {
     public function index(){
-
         $funcionario = Funcionario::all();
         return view('funcionario.index', ['funcionario' => $funcionario]);
     }
@@ -36,6 +35,43 @@ class FuncionarioController extends Controller
 
         return redirect('/funcionario')->with('msg', 'Funcionario adicionado com sucesso');
 
-        
+    }
+
+    public function show($id){
+        $funcionario = Funcionario::findOrFail($id);
+        return view('funcionario.show', ['funcionario' => $funcionario]);
+    }
+
+    public function edit($id){ 
+        $funcionario = Funcionario::find($id);
+        return view('funcionario.edit', ['funcionario' => $funcionario]);
+    }
+
+    public function delete($id){
+        $funcionario = Funcionario::find($id);
+    
+        if ($funcionario) {
+            $funcionario->delete();
+            return redirect('/funcionario')->with('msg', 'Funcionário deletado com sucesso');
+        } else {
+            return redirect('/funcionario')->with('error', 'Funcionário não encontrado');
+        }
+    }
+
+    public function put(Request $request, $id){
+        $funcionarioNovo = Funcionario::find($id);
+
+        $funcionarioNovo->pnome = $request->input('pnome');
+        $funcionarioNovo->unome = $request->input('unome');
+        $funcionarioNovo->sexo = $request->input('sexo');
+        $funcionarioNovo->contato = $request->input('contato');
+        $funcionarioNovo->data_nasc = $request->input('dataNasc');
+        $funcionarioNovo->endereco = $request->input('endereco') == '' ? null : $request->input('endereco');
+        $funcionarioNovo->cargo = $request->input('cargo');
+        $funcionarioNovo->save();
+        return redirect('/funcionario')->with('msg', 'Funcionário atualizado com sucesso');
     }
 }
+
+
+

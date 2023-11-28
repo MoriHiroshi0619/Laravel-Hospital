@@ -23,3 +23,17 @@ input[type="submit"]{
     text-align: center;
     padding: 10px;
 }
+
+.error{
+    background-color: #edd4d4;
+    color: #571515;
+    border: 1px solid #e6c3c3;
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 10px;
+}
+
+#funcCard{
+    margin-bottom: 2rem;
+}
