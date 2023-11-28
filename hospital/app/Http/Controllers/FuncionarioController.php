@@ -12,4 +12,8 @@ class FuncionarioController extends Controller
         $funcionario = Funcionario::all();
         return view('funcionario.index', ['funcionario' => $funcionario]);
     }
+
+    public function create(){
+        return view('funcionario.create');
+    }
 }

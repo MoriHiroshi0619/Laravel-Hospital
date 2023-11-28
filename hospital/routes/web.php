@@ -17,4 +17,7 @@ use App\Http\Controllers\FuncionarioController;
 
 
 Route::get('/admin', [AdminController::class, 'index']);
+
 Route::get('/funcionario', [FuncionarioController::class, 'index']);
+Route::get('/funcionario/criar', [FuncionarioController::class, 'create']);
+Route::post('/funcionario', [FuncionarioController::class, 'store']);

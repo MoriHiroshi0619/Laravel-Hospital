@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('contato', 11)->nullable(false);
             $table->string('cpf', 11)->unique()->nullable(false);
+            $table->string('sexo', 1)->nullable(false);
             $table->string('pnome', 30)->nullable(false);
             $table->string('unome', 30)->nullable(false);
             $table->text('endereco')->nullable(true);
