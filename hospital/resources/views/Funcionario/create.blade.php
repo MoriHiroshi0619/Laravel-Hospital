@@ -7,13 +7,14 @@
 <div class="container py-3" id="func-create-container">
     <h2>Adicionando um novo funcionario.</h2>
     <form action="/funcionario" method="POST">
+        @csrf
         <div class="form-group">
             <label for="pnome">Primeiro Nome</label>
-            <input type="text" id="pnome" class="form-control" name="pnome" placeholder="Primeiro Nome">
+            <input type="text" id="pnome" class="form-control" name="pnome" placeholder="Primeiro Nome" required>
         </div>
         <div class="form-group">
             <label for="unome">Ultimo Nome</label>
-            <input type="text" id="unome" class="form-control" name="unome" placeholder="Ultimo Nome">
+            <input type="text" id="unome" class="form-control" name="unome" placeholder="Ultimo Nome" required>
         </div>
         <div class="form-group">
             <label for="sexo">sexo</label>
@@ -24,15 +25,15 @@
         </div>
         <div class="form-group">
             <label for="contato">Contato</label>
-            <input type="text" id="contato" class="form-control" name="contato" placeholder="67912344321">
+            <input type="text" id="contato" class="form-control" name="contato" placeholder="67912344321" maxlength="11" required>
         </div>
         <div class="form-group">
             <label for="cpf">CPF</label>
-            <input type="text" id="cpf" class="form-control" name="cpf" placeholder="00011122234" maxlength="11" minlength="11">
+            <input type="text" id="cpf" class="form-control" name="cpf" placeholder="00011122234" maxlength="11" minlength="11" required>
         </div>
         <div class="form-group">
             <label for="dataNasc">Data de Nascimento</label>
-            <input type="date" id="dataNasc" class="form-control" name="dataNasc">
+            <input type="date" id="dataNasc" class="form-control" name="dataNasc" required>
         </div>
         <div class="form-group">
             <label for="endereco">Endereço</label>
@@ -40,7 +41,7 @@
         </div>
         <div class="form-group">
             <label for="senha">Senha</label>
-            <input type="password" id="senha" name="senha" class="form-control">
+            <input type="password" id="senha" name="senha" class="form-control" minlength="6" required>
         </div>
         <div class="form-group">
             <label for="cargo">Cargo</label>
@@ -51,7 +52,7 @@
                 <option value="Administrativo">Administrativo</option>
             </select>
         </div>
-        <input type="submit" class="btn btm-primary" value="Adicionar Novo Funcionario">
+        <input type="submit" class="btn btn-primary" value="Adicionar Novo Funcionario">
     </form>
 </div>
 

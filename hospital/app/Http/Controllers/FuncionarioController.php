@@ -16,4 +16,26 @@ class FuncionarioController extends Controller
     public function create(){
         return view('funcionario.create');
     }
+
+    public function store(Request $request){
+        $funcionario = new Funcionario();
+
+        $funcionario->pnome = $request->input('pnome');
+        $funcionario->unome = $request->input('unome');
+        $funcionario->sexo = $request->input('sexo');
+        $funcionario->contato = $request->input('contato');
+        $funcionario->cpf = $request->input('cpf');
+        $funcionario->data_nasc = $request->input('dataNasc');
+
+        $funcionario->endereco = $request->input('endereco') == '' ? null : $request->input('endereco');
+
+        $funcionario->senha = bcrypt($request->input('senha'));
+        $funcionario->cargo = $request->input('cargo');
+        
+        $funcionario->save();
+
+        return redirect('/funcionario')->with('msg', 'Funcionario adicionado com sucesso');
+
+        
+    }
 }

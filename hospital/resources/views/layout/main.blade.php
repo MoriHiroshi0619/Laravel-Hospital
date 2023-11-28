@@ -44,7 +44,8 @@
         </header>
 
         @yield('content')
-        <footer class="p-2 bg-light text-center ">
+        <div class="p-4 invisible"></div>
+        <footer class="p-2 bg-light text-center fixed-bottom">
             <p>Sistema Hospitalar &copy; 2023</p>
         </footer>
     </body>
