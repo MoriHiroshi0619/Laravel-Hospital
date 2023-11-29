@@ -14,9 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FuncionarioController;
-
+use App\Http\Controllers\LoginController;
 
 Route::get('/admin', [AdminController::class, 'index']);
+
+Route::get('/login', [LoginController::class, 'showLoginForm']);
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+
 
 Route::get('/funcionario', [FuncionarioController::class, 'index']);
 Route::get('/funcionario/criar', [FuncionarioController::class, 'create']);
