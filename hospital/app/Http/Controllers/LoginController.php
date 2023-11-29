@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\Funcionario;
+
 
 class LoginController extends Controller
 {
@@ -11,8 +14,9 @@ class LoginController extends Controller
         return view('login');
     }
 
-    public function login(Request $request){
-        
+    public function login(Request $request)
+    {
+        // Validação das credenciais
         $request->validate([
             'cpf' => 'required',
             'senha' => 'required'
@@ -21,14 +25,20 @@ class LoginController extends Controller
             'senha.required' => 'A senha é obrigatória'
         ]);
 
-        $credentials = $request->only('cpf', 'senha');
+        // Recupera as credenciais do formulário
+        $cpf = $request->input('cpf');
+        $senha = $request->input('senha');
+        
+        // Obtém o funcionário pelo CPF
+        $funcionario = Funcionario::where('cpf', $cpf)->first();
 
-        $autenticado = Auth::guard('funcionario')->attempt($credentials);
-
-        if($autenticado){
-            return redirect('funcionario.index')->with('msg', 'Login feito com Sucesso');
-        }else{
-            return redirect()->back()->withErrors(['error' => 'CPF ou senha invalidos']);
+        // Verifica se o funcionário existe e se a senha corresponde
+        if ($funcionario && Hash::check($senha, $funcionario->senha)) {
+            Auth::guard('funcionario')->login($funcionario);
+            return redirect('/funcionario')->with('msg', 'Login feito com Sucesso');
+        } else {
+            return redirect()->back()->withErrors(['error' => 'CPF ou senha inválidos']);
         }
     }
+
 }
