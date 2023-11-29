@@ -32,6 +32,9 @@
                     <div class="card">
                         <div class="card-header">
                             <span>Faça login por favor</span>
+                            @if(session('error'))
+                                <p class="error">{{session('error')}}</p>
+                            @endif
                             @error('error')
                                 <p class="error">{{$message}}</p>
                             @enderror

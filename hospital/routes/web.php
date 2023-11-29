@@ -24,10 +24,10 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 
 
-Route::get('/funcionario', [FuncionarioController::class, 'index']);
-Route::get('/funcionario/criar', [FuncionarioController::class, 'create']);
-Route::post('/funcionario', [FuncionarioController::class, 'store']);
-Route::get('/funcionario/{id}', [FuncionarioController::class, 'show']);
-Route::delete('/funcionario/{id}', [FuncionarioController::class, 'delete']);
-Route::get('/funcionario/editar/{id}', [FuncionarioController::class, 'edit']);
-Route::put('/funcionario/editar/{id}', [FuncionarioController::class, 'put']);
+Route::get('/funcionario', [FuncionarioController::class, 'index'])->middleware('admin');
+Route::get('/funcionario/criar', [FuncionarioController::class, 'create'])->middleware('admin');
+Route::post('/funcionario', [FuncionarioController::class, 'store'])->middleware('admin');
+Route::get('/funcionario/{id}', [FuncionarioController::class, 'show'])->middleware('admin');
+Route::delete('/funcionario/{id}', [FuncionarioController::class, 'delete'])->middleware('admin');
+Route::get('/funcionario/editar/{id}', [FuncionarioController::class, 'edit'])->middleware('admin');
+Route::put('/funcionario/editar/{id}', [FuncionarioController::class, 'put'])->middleware('admin');

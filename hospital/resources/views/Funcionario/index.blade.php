@@ -1,12 +1,19 @@
 @extends('layout.main')
 
 @section('title', 'Bem vindo')
+
+@section('usuario', $funcionario->pnome)
     
 @section('content')
 
 
-<div class="container py-2">
-    <h1>Funcionarios</h1>
+<div class="container py-2 mt-3 d-flex align-items-center justify-content-between">
+    <div>
+        <h1>Funcionarios</h1>
+    </div>
+    <div>
+        <a href="/funcionario/criar" class="btn btn-primary">Adicionar Funcionário</a>
+    </div>
 </div>
 <div class="container">
     <div class="table-responsive">
@@ -20,7 +27,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($funcionario as $f)
+                @foreach ($funcionarios as $f)
                     <tr>
                         <th>{{$f->pnome}}</th>
                         <th>{{$f->unome}}</th>

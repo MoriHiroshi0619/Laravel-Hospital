@@ -36,11 +36,12 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="menuNavBar">
-                        <div class="navbar-nav ms-auto">
-                        <a href="/funcionario/criar" class="nav-link">Criar</a>
-                        <a href="" class="nav-link">Atualizar</a>
-                        <a href="" class="nav-link">Deletar</a>
-                        <a href="" class="nav-link">voltar</a>
+                        <div class="navbar-nav ms-auto d-flex align-items-center">
+                            <span class="fs-5 text-decoration-underline me-3">@yield('usuario')</span>
+                            <form action="/logout" method="POST" class="me-2">
+                                @csrf
+                                <input type="submit" class="btn btn-outline-danger" value="Sair">
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -34,13 +34,22 @@ class LoginController extends Controller
 
         // Verifica se o funcionário existe e se a senha corresponde
         if ($funcionario && Hash::check($senha, $funcionario->senha)) {
-            Auth::guard('funcionario')->login($funcionario);
+            Auth::guard('funcionario')->login($funcionario, true);
+            //Auth::guard('funcionario')->attempt(['cpf' => $cpf, 'senha' => $senha], true);
             return redirect('/funcionario')->with('msg', 'Login feito com Sucesso');
         } else {
             return redirect()->back()->withErrors(['error' => 'CPF ou senha inválidos']);
         }
     }
 
-    
+    public function logout(Request $request){
+        Auth::guard('funcionario')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
+    }
+
+
 
 }

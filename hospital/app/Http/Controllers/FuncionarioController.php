@@ -4,12 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Funcionario;
+use Illuminate\Support\Facades\Auth;
 
 class FuncionarioController extends Controller
 {
     public function index(){
-        $funcionario = Funcionario::all();
-        return view('funcionario.index', ['funcionario' => $funcionario]);
+        // Verifica se há um funcionário autenticado
+        /* if (Auth::guard('funcionario')->check()) {
+            $funcionario = Auth::guard('funcionario')->user();
+            $funcionarios = Funcionario::all();
+            return view('funcionario.index', ['funcionarios' => $funcionarios, 'funcionario' => $funcionario]);
+        }else{
+            redirect('/login')->with('error', 'Por favor você precisa logar no sistema primeiro.');
+        } */
+        $funcionario = Auth::guard('funcionario')->user();
+        $funcionarios = Funcionario::all();
+        return view('funcionario.index', ['funcionarios' => $funcionarios, 'funcionario' => $funcionario]);
     }
 
     public function create(){
