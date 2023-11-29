@@ -9,7 +9,7 @@
 
 <div class="container py-2 mt-3 d-flex align-items-center justify-content-between">
     <div>
-        <h1>Funcionarios</h1>
+        <h1>Admin</h1>
     </div>
     <div>
         <a href="/funcionario/criar" class="btn btn-primary">Adicionar Funcionário</a>

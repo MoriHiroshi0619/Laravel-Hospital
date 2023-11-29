@@ -11,19 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('funcionario', function (Blueprint $table) {
+        Schema::create('paciente', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('contato', 11)->nullable(false);
             $table->string('cpf', 11)->unique()->nullable(false);
             $table->string('sexo', 1)->nullable(false);
             $table->string('pnome', 30)->nullable(false);
             $table->string('unome', 30)->nullable(false);
             $table->text('endereco')->nullable(true);
             $table->date('data_nasc')->nullable(false);
-            $table->string('senha')->nullable(false);
-            $table->string('cargo', 20)->nullable(false);
-            
+            $table->double('peso', 3, 2)->nullable(true);
+            $table->double('altura', 1, 2)->nullable(false);
         });
     }
 
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('funcionario');
+        Schema::dropIfExists('paciente');
     }
 };
