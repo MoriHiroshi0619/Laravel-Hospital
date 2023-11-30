@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Funcionario;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Recepcao;
 class FuncionarioController extends Controller
 {
     public function index(){
@@ -41,8 +41,14 @@ class FuncionarioController extends Controller
 
         $funcionario->senha = bcrypt($request->input('senha'));
         $funcionario->cargo = $request->input('cargo');
-        
+
         $funcionario->save();
+        
+        if($funcionario->cargo == 'Recepção'){
+            $recepcao = new Recepcao();
+            $recepcao->funcionario_id = $funcionario->id;
+            $recepcao->save();
+        }
 
         return redirect('/funcionario')->with('msg', 'Funcionario adicionado com sucesso');
 

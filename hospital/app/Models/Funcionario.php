@@ -43,4 +43,8 @@ class Funcionario extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function recepcao(){
+        return $this->hasOne('App\Models\Recepcao');
+    }
 }

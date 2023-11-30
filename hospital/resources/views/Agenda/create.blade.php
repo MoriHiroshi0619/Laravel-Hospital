@@ -51,11 +51,11 @@
         $("#paciente").autocomplete({
             source: function(request, response) {
                 $.ajax({
-                    url: '/buscar_pacientes_por_cpf', // Endpoint para buscar pacientes pelo CPF
+                    url: '/buscar_pacientes_por_cpf', 
                     type: 'GET',
                     dataType: 'json',
                     data: {
-                        'search': request.term // Termo de pesquisa
+                        'search': request.term 
                     },
                     success: function(data) {
                         response(data);
@@ -63,7 +63,7 @@
                     }
                 });
             },
-            minLength: 2 // Número mínimo de caracteres para iniciar a pesquisa
+            minLength: 2 
         });
     });
 </script>

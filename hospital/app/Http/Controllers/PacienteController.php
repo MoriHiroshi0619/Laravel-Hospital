@@ -79,8 +79,6 @@ class PacienteController extends Controller
 
     public function buscaCpf(Request $request) {
         $searchTerm = $request->input('search');
-
-
         $pacientes = Paciente::where('cpf', 'like', '%' . $searchTerm . '%')->get(['id', 'pnome', 'unome', 'cpf']);
 
         $formattedPacientes = [];

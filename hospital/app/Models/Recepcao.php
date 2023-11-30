@@ -11,7 +11,12 @@ class Recepcao extends Model
     
     use HasFactory;
 
+    public function funcionario(){
+        return $this->belongsTo('App\Models\Funcionario');
+    }
+
     public function agendas(){
         return $this->hasMany('App\Models\Agendou');
     }
+
 }
