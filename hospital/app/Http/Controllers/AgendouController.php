@@ -29,10 +29,11 @@ class AgendouController extends Controller
         $agenda->grau_prioridade = $request->input('grau_prioridade');
         $paciente = Paciente::where('cpf', $request->input('paciente'))->first();
         $agenda->paciente_id = $paciente->id;
-        if(Auth::guard('funcionario')->user()->cargo == 'Recepção'){
-            $recepcao = Recepcao::findOrFail(Auth::guard('funcionario')->user()->id);
-        }
-        $agenda->recepcionista_id = $recepcao->id;
+        //if(Auth::guard('funcionario')->user()->cargo == 'Recepção'){
+            //$recepcao = Recepcao::findOrFail(Auth::guard('funcionario')->user()->id);
+            //}
+        $recepcao = Recepcao::where('funcionario_id', Auth::guard('funcionario')->user()->id)->first();
+        $agenda->recepcionista_id = $recepcao->id; 
         if($agenda->save()){
             return redirect('/agenda')->with('msg', 'Consulta agendada com sucesso');
         }else{
