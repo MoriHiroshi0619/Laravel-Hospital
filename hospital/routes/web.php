@@ -20,13 +20,6 @@ Route::delete('/funcionario/{id}', [FuncionarioController::class, 'delete'])->mi
 Route::get('/funcionario/editar/{id}', [FuncionarioController::class, 'edit'])->middleware('admin');
 Route::put('/funcionario/editar/{id}', [FuncionarioController::class, 'put'])->middleware('admin');
 
-/* Route::get('/paciente', [PacienteController::class, 'index'])->middleware(['recepcao', 'admin']);
-Route::get('/paciente/criar', [PacienteController::class, 'create'])->middleware(['recepcao', 'admin']);
-Route::post('/paciente', [PacienteController::class, 'store'])->middleware(['recepcao', 'admin']);
-Route::get('/paciente/{id}',[PacienteController::class, 'show'])->middleware(['recepcao', 'admin']);
-Route::delete('/paciente/{id}', [PacienteController::class, 'delete'])->middleware(['recepcao', 'admin']);
-Route::get('paciente/editar/{id}', [PacienteController::class, 'edit'])->middleware(['recepcao', 'admin']);
-Route::put('paciente/editar/{id}', [PacienteController::class, 'put'])->middleware(['recepcao', 'admin']); */
 
 Route::middleware(['recepcao'])->group(function () {
     Route::get('/paciente', [PacienteController::class, 'index']);
@@ -38,12 +31,20 @@ Route::middleware(['recepcao'])->group(function () {
     Route::put('paciente/editar/{id}', [PacienteController::class, 'put']);
 
     Route::get('/buscar_pacientes_por_cpf',[PacienteController::class, 'buscaCpf']);
-
+    
+    Route::get('/agenda', [AgendouController::class, 'index']);
     Route::get('/agenda/criar', [AgendouController::class, 'create']);
     Route::post('/agenda', [AgendouController::class, 'store']);
 });
 
 
+/* Route::get('/paciente', [PacienteController::class, 'index'])->middleware(['recepcao', 'admin']);
+Route::get('/paciente/criar', [PacienteController::class, 'create'])->middleware(['recepcao', 'admin']);
+Route::post('/paciente', [PacienteController::class, 'store'])->middleware(['recepcao', 'admin']);
+Route::get('/paciente/{id}',[PacienteController::class, 'show'])->middleware(['recepcao', 'admin']);
+Route::delete('/paciente/{id}', [PacienteController::class, 'delete'])->middleware(['recepcao', 'admin']);
+Route::get('paciente/editar/{id}', [PacienteController::class, 'edit'])->middleware(['recepcao', 'admin']);
+Route::put('paciente/editar/{id}', [PacienteController::class, 'put'])->middleware(['recepcao', 'admin']); */
 
 
 

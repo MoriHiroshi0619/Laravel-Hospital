@@ -11,6 +11,12 @@ use App\Models\Recepcao;
 
 class AgendouController extends Controller
 {
+    public function index(){
+        $funcionario = Auth::guard('funcionario')->user();
+        $agendas = Agendou::all();
+        return view('agenda.index', ['agendas' => $agendas, 'funcionario' => $funcionario]);
+    }
+
     public function create(){
         $funcionario = Auth::guard('funcionario')->user();
         return view('agenda.create', ['funcionario' => $funcionario]);
@@ -28,10 +34,9 @@ class AgendouController extends Controller
         }
         $agenda->recepcionista_id = $recepcao->id;
         if($agenda->save()){
-            return redirect('/paciente')->with('msg', 'Consulta agendada com sucesso');
+            return redirect('/agenda')->with('msg', 'Consulta agendada com sucesso');
         }else{
-            return redirect('/paciente')->with('error', 'Erro ao Agendar Consulta');
+            return redirect('/agenda')->with('error', 'Erro ao Agendar Consulta');
         }
-
     }
 }

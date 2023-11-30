@@ -18,8 +18,8 @@
                 @if ($funcionario->cargo == 'Admin')
                     <a href="/funcionario" class="btn btn-secondary">Ver Todos os Funcionarios</a>
                 @endif
-                <a href="/agenda" class="btn btn-secondary">Ver todos as agendas</a>
-                <a href="/paciente/criar" class="btn btn-success">Adicionar Paciente</a>
+                <a href="/paciente" class="btn btn-secondary">Ver todos os Pacientes</a>
+                <a href="/agenda/criar" class="btn btn-success">Agendar consulta</a>
             </div>
         </div>
     </div>
@@ -30,23 +30,23 @@
         <table class="table table-striped table-hover table-bordered text-center align-middle caption-top">
             <thead class="table-dark">
                 <tr>
-                    <th>Primeiro Nome</th>
-                    <th>Ultimo Nome</th>
-                    <th>CPF</th>
+                    <th>Data</th>
+                    <th>Grau de Prioridade</th>
+                    <th>Paciente</th>
                     <th>Saber mais</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($pacientes as $p)
+                @foreach ($agendas as $a)
                     <tr>
-                        <th>{{$p->pnome}}</th>
-                        <th>{{$p->unome}}</th>
-                        <th>{{$p->cpf}}</th>
-                        <th><a href="/paciente/{{ $p->id }}" class="nav-link"><i class="bi bi-info-square-fill" style="font-size: 2rem"></i></a></th>
+                        <th>{{$a->data}}</th>
+                        <th>{{$a->grau_prioridade}}</th>
+                        <th>{{$a->funcionario_id}}</th>
+                        <th><a href="/paciente/{{ $a->funcionario_id }}" class="nav-link"><i class="bi bi-info-square-fill" style="font-size: 2rem"></i></a></th>
                     </tr>
                 @endforeach
             </tbody>
-            <caption class="text-center">Todos os Pacientes</caption>
+            <caption class="text-center">Todas as Consultas agendadas</caption>
         </table>
     </div>
 </div>

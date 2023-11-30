@@ -10,12 +10,12 @@
     <div class="card">
         <div class="card-header d-flex align-items-center justify-content-between">
             Agendando uma Consulta
-            <form action="/paciente" method="GET">
+            <form action="/agenda" method="GET">
                 @csrf
                 <input type="submit" value="Cancelar" class="btn btn-danger">
             </form>
           </div>
-        <form action="/agenda" method="POST" id="form">
+        <form action="/agenda" method="POST">
             @csrf
             <div class="card-body">
                 <div class="row mb-3">
