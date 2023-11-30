@@ -74,8 +74,6 @@
                         <input type="number" id="peso" class="form-control" name="peso" step="0.1" min="40" max="150" >
                     </div>
                 </div>
-                
-
                 <input type="submit" class="btn btn-primary" value="Adicionar Novo Funcionario">
                 </form>
             </div>
@@ -104,10 +102,6 @@
     function updateAlturaValue(val) {
         document.getElementById('alturaValue').innerText = val;
     }
-    function updatePesoValue(val) {
-        document.getElementById('pesoValue').innerText = val;
-    }
-
 </script>
 
 

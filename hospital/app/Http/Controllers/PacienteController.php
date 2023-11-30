@@ -18,5 +18,23 @@ class PacienteController extends Controller
     public function create(){
         return view('paciente.create');
     }
+
+    public function store(Request $request){
+        $paciente = new Paciente();
+
+        $paciente->pnome = $request->input('pnome');
+        $paciente->unome = $request->input('unome');
+        $paciente->sexo = $request->input('sexo');
+        $paciente->contato = $request->input('contato');
+        $paciente->cpf = $request->input('cpf');
+        $paciente->data_nasc = $request->input('dataNasc');
+        $paciente->endereco = $request->input('endereco') == '' ? null : $request->input('endereco');
+        $paciente->altura = $request->input('altura') == '' ? null : $request->input('altura');
+        $paciente->peso = $request->input('peso') == '' ? null : $request->input('peso');
+
+        $paciente->save();
+
+        return redirect('/paciente')->with('msg', 'Paciente adicionado com sucesso');
+    }
 }
 
