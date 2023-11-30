@@ -16,7 +16,8 @@ class PacienteController extends Controller
     }
 
     public function create(){
-        return view('paciente.create');
+        $funcionario = Auth::guard('funcionario')->user();
+        return view('paciente.create', ['funcionario' => $funcionario]);
     }
 
     public function store(Request $request){
@@ -35,6 +36,12 @@ class PacienteController extends Controller
         $paciente->save();
 
         return redirect('/paciente')->with('msg', 'Paciente adicionado com sucesso');
+    }
+
+    public function show($id){
+        $paciente = Paciente::findOrFail($id);
+        $funcionario = Auth::guard('funcionario')->user();
+        return view('paciente.show', ['paciente' => $paciente, 'funcionario' => $funcionario]);
     }
 }
 

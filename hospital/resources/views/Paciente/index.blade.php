@@ -33,7 +33,7 @@
                         <th>{{$p->pnome}}</th>
                         <th>{{$p->unome}}</th>
                         <th>{{$p->cpf}}</th>
-                        <th><a href="/funcionario/{{ $p->id }}" class="nav-link"><i class="bi bi-info-square-fill" style="font-size: 2rem"></i></a></th>
+                        <th><a href="/paciente/{{ $p->id }}" class="nav-link"><i class="bi bi-info-square-fill" style="font-size: 2rem"></i></a></th>
                     </tr>
                 @endforeach
             </tbody>

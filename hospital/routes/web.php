@@ -34,6 +34,7 @@ Route::put('/funcionario/editar/{id}', [FuncionarioController::class, 'put'])->m
 Route::get('/paciente', [PacienteController::class, 'index'])->middleware('admin');
 Route::get('/paciente/criar', [PacienteController::class, 'create'])->middleware('admin');
 Route::post('/paciente', [PacienteController::class, 'store'])->middleware('admin');
+Route::get('/paciente/{id}',[PacienteController::class, 'show'])->middleware('admin');
 
 
 

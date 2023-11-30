@@ -2,6 +2,8 @@
 
 @section('title', 'Adicionando Funcionario')
 
+@section('usuario', $funcionario->pnome)
+
 @section('content')
     
 <div class="container py-3" id="func-create-container">
