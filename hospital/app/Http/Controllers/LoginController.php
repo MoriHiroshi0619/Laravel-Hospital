@@ -36,7 +36,11 @@ class LoginController extends Controller
         if ($funcionario && Hash::check($senha, $funcionario->senha)) {
             Auth::guard('funcionario')->login($funcionario, true);
             //Auth::guard('funcionario')->attempt(['cpf' => $cpf, 'senha' => $senha], true);
-            return redirect('/funcionario')->with('msg', 'Login feito com Sucesso');
+            if($funcionario->cargo == 'Admin'){
+                return redirect('/funcionario')->with('msg', 'Login Admin feito com Sucesso');
+            }else if($funcionario->cargo == 'Recepção'){
+                return redirect('/paciente')->with('msg', 'Login Recepção feito com Sucesso');
+            }
         } else {
             return redirect()->back()->withErrors(['error' => 'CPF ou senha inválidos']);
         }

@@ -4,10 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 
-class AdminAccess
+class RecepcaoAccess
 {
     /**
      * Handle an incoming request.
@@ -16,11 +16,11 @@ class AdminAccess
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::guard('funcionario')->check() && Auth::guard('funcionario')->user()->cargo == 'Admin') {
+        if (Auth::guard('funcionario')->check() && Auth::guard('funcionario')->user()->cargo == 'Recepção') {
             return $next($request);
         }
     
-        return redirect('/login')->with('error', 'Apenas usuários Admin podem acessar essa rota');
+        return redirect('/login')->with('error', 'Você não tem acesso a essa rota');
     
     }
 }

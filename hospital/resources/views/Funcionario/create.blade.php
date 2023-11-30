@@ -73,10 +73,11 @@
                     <label for="cargo" class="col-sm-3 col-form-label text-decoration-underline">Cargo</label>
                     <div class="col-sm-9"> 
                         <select name="cargo" id="cargo" class="form-control">
-                            <option value="Recepcionista">Recepcionista</option>
-                            <option value="Enfermeiro">Enfermeiro</option>
-                            <option value="Medico">Médico</option>
+                            <option value="Recepção">Recepção</option>
+                            <option value="Enfermagem">Enfermagem</option>
+                            <option value="Medicina">Medicina</option>
                             <option value="Administrativo">Administrativo</option>
+                            <option value="Administrativo">Admin</option>
                         </select>
                     </div>
                 </div>

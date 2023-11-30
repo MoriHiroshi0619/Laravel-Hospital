@@ -28,7 +28,7 @@
         <header class="sticky-top">
             <nav class="navbar bg-light navbar-expand-sm">
                 <div class="container">
-                    <a href="/funcionario" class="navbar-brand d-flex align-items-center">
+                    <a href="#" class="navbar-brand d-flex align-items-center">
                         <img src="/img/logo.png" id="logo">
                         Sistema Hospitalar 
                     </a>

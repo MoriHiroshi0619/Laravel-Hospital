@@ -82,33 +82,45 @@
               <div class="col-sm-9">
                 <select name="cargo" id="cargo" class="form-control">
                     @php
-                        if($funcionario->cargo == 'Recepcionista'){
+                        if($funcionario->cargo == 'Recepção'){
                             echo <<<HTML
-                                    <option value="Recepcionista">Recepcionista</option>
-                                    <option value="Enfermeiro">Enfermeiro</option>
-                                    <option value="Medico">Médico</option>
+                                    <option value="Recepção">Recepção</option>
+                                    <option value="Enfermagem">Enfermagem</option>
+                                    <option value="Medicina">Medicina</option>
                                     <option value="Administrativo">Administrativo</option>
+                                    <option value="Administrativo">Admin</option>
                                 HTML;
-                        }else if($funcionario->cargo == 'Enfermeiro'){
+                        }else if($funcionario->cargo == 'Enfermagem'){
                             echo <<<HTML
-                                <option value="Enfermeiro">Enfermeiro</option>
-                                <option value="Recepcionista">Recepcionista</option>
-                                <option value="Medico">Médico</option>
+                                <option value="Enfermagem">Enfermagem</option>
+                                <option value="Recepção">Recepção</option>
+                                <option value="Medicina">Medicina</option>
                                 <option value="Administrativo">Administrativo</option>
+                                <option value="Administrativo">Admin</option>
                             HTML;
-                        }else if($funcionario->cargo == 'Médico' || $funcionario->cargo == 'Medico'){
+                        }else if($funcionario->cargo == 'Medicina'){
                             echo <<<HTML
-                                <option value="Medico">Médico</option>
-                                <option value="Enfermeiro">Enfermeiro</option>
-                                <option value="Recepcionista">Recepcionista</option>
+                                <option value="Medicina">Medicina</option>
+                                <option value="Enfermagem">Enfermagem</option>
+                                <option value="Recepção">Recepção</option>
                                 <option value="Administrativo">Administrativo</option>
+                                <option value="Administrativo">Admin</option>
+                            HTML;
+                        }else if($funcionario->cargo == 'Administrativo'){
+                            echo <<<HTML
+                                <option value="Administrativo">Administrativo</option>
+                                <option value="Medicina">Medicina</option>
+                                <option value="Enfermagem">Enfermagem</option>
+                                <option value="Recepção">Recepção</option>
+                                <option value="Administrativo">Admin</option>
                             HTML;
                         }else{
                             echo <<<HTML
+                                <option value="Administrativo">Admin</option>
                                 <option value="Administrativo">Administrativo</option>
-                                <option value="Medico">Médico</option>
-                                <option value="Enfermeiro">Enfermeiro</option>
-                                <option value="Recepcionista">Recepcionista</option>
+                                <option value="Medicina">Medicina</option>
+                                <option value="Enfermagem">Enfermagem</option>
+                                <option value="Recepção">Recepção</option>
                             HTML;
                         }
                     @endphp

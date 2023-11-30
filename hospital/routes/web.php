@@ -20,7 +20,8 @@ Route::delete('/funcionario/{id}', [FuncionarioController::class, 'delete'])->mi
 Route::get('/funcionario/editar/{id}', [FuncionarioController::class, 'edit'])->middleware('admin');
 Route::put('/funcionario/editar/{id}', [FuncionarioController::class, 'put'])->middleware('admin');
 
-Route::get('/paciente', [PacienteController::class, 'index'])->middleware('admin');
+Route::get('/paciente', [PacienteController::class, 'index'])->middleware(['recepcao', 'admin']);
+
 Route::get('/paciente/criar', [PacienteController::class, 'create'])->middleware('admin');
 Route::post('/paciente', [PacienteController::class, 'store'])->middleware('admin');
 Route::get('/paciente/{id}',[PacienteController::class, 'show'])->middleware('admin');

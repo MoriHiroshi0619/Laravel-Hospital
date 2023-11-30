@@ -10,7 +10,7 @@
     <div class="card">
       <div class="card-header d-flex align-items-center justify-content-between">
         Informações do Funcionário
-        <div class="d-flex">
+        <div class="d-flex align-items-center">
             <form action="/funcionario/editar/{{$funcionario->id}}" method="GET">
                 @csrf
                 <input type="submit" value="Editar" class="btn btn-primary">
@@ -20,6 +20,7 @@
                 @method('DELETE')
                 <input type="submit" value="Deletar" class="btn btn-danger">
             </form>
+            <a href="/funcionario" class="btn btn-secondary">Voltar</a>
         </div>
       </div>
       <div class="card-body">
