@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('unome', 30)->nullable(false);
             $table->text('endereco')->nullable(true);
             $table->date('data_nasc')->nullable(false);
-            $table->double('peso', 3, 2)->nullable(true);
-            $table->double('altura', 1, 2)->nullable(false);
+            $table->double('peso', 3, 1)->nullable(true);
+            $table->integer('altura')->nullable(true);
         });
     }
 

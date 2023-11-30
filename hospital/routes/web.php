@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FuncionarioController;
+use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\LoginController;
-
+use App\Models\Funcionario;
 
 Route::get('/login', [LoginController::class, 'showLoginForm']);
 Route::post('/login', [LoginController::class, 'login']);
@@ -29,3 +30,16 @@ Route::get('/funcionario/{id}', [FuncionarioController::class, 'show'])->middlew
 Route::delete('/funcionario/{id}', [FuncionarioController::class, 'delete'])->middleware('admin');
 Route::get('/funcionario/editar/{id}', [FuncionarioController::class, 'edit'])->middleware('admin');
 Route::put('/funcionario/editar/{id}', [FuncionarioController::class, 'put'])->middleware('admin');
+
+Route::get('/paciente', [PacienteController::class, 'index'])->middleware('admin');
+Route::get('/paciente/criar', [PacienteController::class, 'create'])->middleware('admin');
+
+
+
+
+
+
+
+
+
+
