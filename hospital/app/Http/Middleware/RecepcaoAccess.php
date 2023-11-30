@@ -16,11 +16,20 @@ class RecepcaoAccess
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::guard('funcionario')->check() && Auth::guard('funcionario')->user()->cargo == 'Recepção') {
+        
+        if (Auth::guard('funcionario')->check() && Auth::guard('funcionario')->user()->cargo == 'Recepção' || Auth::guard('funcionario')->user()->cargo == 'Admin') {
             return $next($request);
         }
     
-        return redirect('/login')->with('error', 'Você não tem acesso a essa rota');
-    
+        return redirect('/login')->with('error', 'Você não tem acesso a essa rota'); 
+        /* if (!Auth::guard('funcionario')->check()) {
+            return redirect('/login')->with('error', 'Você precisa logar no sistema primeiro');
+        }
+
+        if(Auth::guard('funcionario')->user()->cargo != 'Recepção' ){
+            return redirect('/login')->with('error', 'Você não tem acesso a essa rota');
+        }
+
+        return $next($request); */
     }
 }

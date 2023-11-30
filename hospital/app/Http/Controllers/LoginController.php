@@ -40,6 +40,8 @@ class LoginController extends Controller
                 return redirect('/funcionario')->with('msg', 'Login Admin feito com Sucesso');
             }else if($funcionario->cargo == 'Recepção'){
                 return redirect('/paciente')->with('msg', 'Login Recepção feito com Sucesso');
+            }else{
+                return redirect()->back()->withErrors(['error' => 'Você não tem acesso']);
             }
         } else {
             return redirect()->back()->withErrors(['error' => 'CPF ou senha inválidos']);

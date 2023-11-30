@@ -20,14 +20,23 @@ Route::delete('/funcionario/{id}', [FuncionarioController::class, 'delete'])->mi
 Route::get('/funcionario/editar/{id}', [FuncionarioController::class, 'edit'])->middleware('admin');
 Route::put('/funcionario/editar/{id}', [FuncionarioController::class, 'put'])->middleware('admin');
 
-Route::get('/paciente', [PacienteController::class, 'index'])->middleware(['recepcao', 'admin']);
+/* Route::get('/paciente', [PacienteController::class, 'index'])->middleware(['recepcao', 'admin']);
+Route::get('/paciente/criar', [PacienteController::class, 'create'])->middleware(['recepcao', 'admin']);
+Route::post('/paciente', [PacienteController::class, 'store'])->middleware(['recepcao', 'admin']);
+Route::get('/paciente/{id}',[PacienteController::class, 'show'])->middleware(['recepcao', 'admin']);
+Route::delete('/paciente/{id}', [PacienteController::class, 'delete'])->middleware(['recepcao', 'admin']);
+Route::get('paciente/editar/{id}', [PacienteController::class, 'edit'])->middleware(['recepcao', 'admin']);
+Route::put('paciente/editar/{id}', [PacienteController::class, 'put'])->middleware(['recepcao', 'admin']); */
 
-Route::get('/paciente/criar', [PacienteController::class, 'create'])->middleware('admin');
-Route::post('/paciente', [PacienteController::class, 'store'])->middleware('admin');
-Route::get('/paciente/{id}',[PacienteController::class, 'show'])->middleware('admin');
-Route::delete('/paciente/{id}', [PacienteController::class, 'delete'])->middleware('admin');
-Route::get('paciente/editar/{id}', [PacienteController::class, 'edit'])->middleware('admin');
-Route::put('paciente/editar/{id}', [PacienteController::class, 'put'])->middleware('admin');
+Route::middleware(['recepcao'])->group(function () {
+    Route::get('/paciente', [PacienteController::class, 'index']);
+    Route::get('/paciente/criar', [PacienteController::class, 'create']);
+    Route::post('/paciente', [PacienteController::class, 'store']);
+    Route::get('/paciente/{id}', [PacienteController::class, 'show']);
+    Route::delete('/paciente/{id}', [PacienteController::class, 'delete']);
+    Route::get('paciente/editar/{id}', [PacienteController::class, 'edit']);
+    Route::put('paciente/editar/{id}', [PacienteController::class, 'put']);
+});
 
 
 
