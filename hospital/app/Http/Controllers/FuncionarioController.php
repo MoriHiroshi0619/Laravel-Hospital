@@ -23,7 +23,8 @@ class FuncionarioController extends Controller
     }
 
     public function create(){
-        return view('funcionario.create');
+        $f = Auth::guard('funcionario')->user();
+        return view('funcionario.create', ['f'=>$f]);
     }
 
     public function store(Request $request){
@@ -48,13 +49,15 @@ class FuncionarioController extends Controller
     }
 
     public function show($id){
+        $f = Auth::guard('funcionario')->user();
         $funcionario = Funcionario::findOrFail($id);
-        return view('funcionario.show', ['funcionario' => $funcionario]);
+        return view('funcionario.show', ['funcionario' => $funcionario, 'f'=>$f]);
     }
 
     public function edit($id){ 
+        $f = Auth::guard('funcionario')->user();
         $funcionario = Funcionario::find($id);
-        return view('funcionario.edit', ['funcionario' => $funcionario]);
+        return view('funcionario.edit', ['funcionario' => $funcionario, 'f'=>$f]);
     }
 
     public function delete($id){

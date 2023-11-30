@@ -1,6 +1,8 @@
 @extends('layout.main')
 
 @section('title', 'Bem vindo')
+
+@section('usuario', $f->pnome)
     
 @section('content')
 
