@@ -20,7 +20,7 @@ class AdminAccess
             return $next($request);
         }else{
             if(!Auth::guard('funcionario')->check()){
-                return redirect('/login')->with('error', 'Você precica logar no sistema primeiro');
+                return redirect('/login')->with('error', 'Você precisa logar no sistema primeiro');
             }
             return redirect('/login')->with('error', 'Apenas Usuarios Admin podem acessar essa rota');
             

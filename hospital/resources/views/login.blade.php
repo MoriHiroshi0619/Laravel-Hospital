@@ -51,7 +51,7 @@
                                 <div class="row mb-3">
                                     <label for="senha" class="col-sm-3 col-form-label text-decoration-underline">Senha:</label>
                                     <div class="col-sm-9">
-                                        <input type="password" id="senha" name="senha" class=form-control>
+                                        <input type="password" id="senha" name="senha" class="form-control" placeholder="Sua SENHA aqui...">
                                     </div>
                                     <input type="submit" value="Login" class="btn btn-primary">
                                 </div>

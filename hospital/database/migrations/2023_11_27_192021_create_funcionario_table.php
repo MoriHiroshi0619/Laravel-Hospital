@@ -23,7 +23,7 @@ return new class extends Migration
             $table->date('data_nasc')->nullable(false);
             $table->string('senha')->nullable(false);
             $table->string('cargo', 20)->nullable(false);
-            
+            $table->rememberToken();
         });
     }
 
