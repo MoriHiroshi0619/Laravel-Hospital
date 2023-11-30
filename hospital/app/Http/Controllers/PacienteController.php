@@ -76,5 +76,24 @@ class PacienteController extends Controller
         $pacienteNovo->save();
         return redirect('/paciente')->with('msg', 'Paciente Atualizado com sucesso');
     }
+
+    public function buscaCpf(Request $request) {
+        $searchTerm = $request->input('search');
+
+
+        $pacientes = Paciente::where('cpf', 'like', '%' . $searchTerm . '%')->get(['id', 'pnome', 'unome', 'cpf']);
+
+        $formattedPacientes = [];
+        foreach ($pacientes as $paciente) {
+            $label = $paciente->pnome . ' - ' . $paciente->unome . ' - ' . $paciente->cpf;
+            $formattedPacientes[] = [
+                'label' => $label,
+                'value' => $paciente->cpf
+            ];
+        }
+
+        return response()->json($formattedPacientes);
+    }
+
 }
 

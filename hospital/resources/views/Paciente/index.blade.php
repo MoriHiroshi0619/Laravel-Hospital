@@ -7,24 +7,6 @@
 @section('content')
 
 
-{{-- <div class="container py-2 mt-3 d-flex align-items-center justify-content-between">
-    <div>
-        <h1 class="text-uppercase">{{$funcionario->cargo}}</h1>
-    </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#actions">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="actions">
-        <div class="navbar-nav ms-auto">
-            @if ($funcionario->cargo == 'Admin')
-                <a href="/funcionario" class="btn btn-secondary">Ver Todos os Funcionarios</a>
-            @endif
-            <a href="#" class="btn btn-success">Agendar consulta</a>
-            <a href="/paciente/criar" class="btn btn-primary">Adicionar Paciente</a>
-        </div>
-    </div>
-</div> --}}
-
 <nav class="navbar navbar-expand-sm">
     <div class="container py-2 mt-3 d-flex align-items-center justify-content-between">
         <h1 class="text-uppercase">{{$funcionario->cargo}}</h1>
@@ -36,7 +18,7 @@
                 @if ($funcionario->cargo == 'Admin')
                     <a href="/funcionario" class="btn btn-secondary">Ver Todos os Funcionarios</a>
                 @endif
-                <a href="#" class="btn btn-success">Agendar consulta</a>
+                <a href="/agenda/criar" class="btn btn-success">Agendar consulta</a>
                 <a href="/paciente/criar" class="btn btn-primary">Adicionar Paciente</a>
             </div>
         </div>

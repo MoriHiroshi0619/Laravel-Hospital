@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\LoginController;
-
+use App\Http\Controllers\AgendouController;
 
 Route::get('/login', [LoginController::class, 'showLoginForm']);
 Route::post('/login', [LoginController::class, 'login']);
@@ -36,7 +36,14 @@ Route::middleware(['recepcao'])->group(function () {
     Route::delete('/paciente/{id}', [PacienteController::class, 'delete']);
     Route::get('paciente/editar/{id}', [PacienteController::class, 'edit']);
     Route::put('paciente/editar/{id}', [PacienteController::class, 'put']);
+
+    Route::get('/buscar_pacientes_por_cpf',[PacienteController::class, 'buscaCpf']);
+
+    Route::get('/agenda/criar', [AgendouController::class, 'create']);
+    Route::post('/agenda', [AgendouController::class, 'store']);
 });
+
+
 
 
 

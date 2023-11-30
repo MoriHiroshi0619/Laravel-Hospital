@@ -27,7 +27,6 @@
                 @if ($funcionario->cargo == 'Admin')
                     <a href="/paciente" class="btn btn-secondary">Ver Todos os Pacientes</a>
                 @endif
-                <a href="#" class="btn btn-success">Agendar consulta</a>
                 <a href="/funcionario/criar" class="btn btn-primary">Adicionar funcionario</a>
             </div>
         </div>

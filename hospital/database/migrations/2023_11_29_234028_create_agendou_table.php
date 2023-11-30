@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('agendou', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->date('data');
             $table->string('grau_prioridade', 6)->nullable(false);
             $table->unsignedBigInteger('paciente_id');
             $table->unsignedBigInteger('recepcionista_id');
