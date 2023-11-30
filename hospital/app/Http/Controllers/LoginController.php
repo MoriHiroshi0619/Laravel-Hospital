@@ -37,9 +37,9 @@ class LoginController extends Controller
             Auth::guard('funcionario')->login($funcionario, true);
             //Auth::guard('funcionario')->attempt(['cpf' => $cpf, 'senha' => $senha], true);
             if($funcionario->cargo == 'Admin'){
-                return redirect('/funcionario')->with('msg', 'Login Admin feito com Sucesso');
+                return redirect('/funcionario')->with('msg', 'Login feito com Sucesso');
             }else if($funcionario->cargo == 'Recepção'){
-                return redirect('/paciente')->with('msg', 'Login Recepção feito com Sucesso');
+                return redirect('/paciente')->with('msg', 'Login feito com Sucesso');
             }else{
                 return redirect()->back()->withErrors(['error' => 'Você não tem acesso']);
             }
