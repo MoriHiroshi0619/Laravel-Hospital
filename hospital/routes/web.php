@@ -2,21 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\LoginController;
-use App\Models\Funcionario;
+
 
 Route::get('/login', [LoginController::class, 'showLoginForm']);
 Route::post('/login', [LoginController::class, 'login']);
@@ -35,7 +24,9 @@ Route::get('/paciente', [PacienteController::class, 'index'])->middleware('admin
 Route::get('/paciente/criar', [PacienteController::class, 'create'])->middleware('admin');
 Route::post('/paciente', [PacienteController::class, 'store'])->middleware('admin');
 Route::get('/paciente/{id}',[PacienteController::class, 'show'])->middleware('admin');
-
+Route::delete('/paciente/{id}', [PacienteController::class, 'delete'])->middleware('admin');
+Route::get('paciente/editar/{id}', [PacienteController::class, 'edit'])->middleware('admin');
+Route::put('paciente/editar/{id}', [PacienteController::class, 'put'])->middleware('admin');
 
 
 

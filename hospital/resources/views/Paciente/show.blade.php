@@ -11,11 +11,11 @@
       <div class="card-header d-flex align-items-center justify-content-between">
         Informações do Paciente
         <div class="d-flex align-items-center">
-            <form action="/funcionario/editar/{{$funcionario->id}}" method="GET">
+            <form action="/paciente/editar/{{$paciente->id}}" method="GET">
                 @csrf
                 <input type="submit" value="Editar" class="btn btn-primary">
             </form>
-            <form action="/funcionario/{{ $funcionario->id }}" method="POST">
+            <form action="/paciente/{{ $paciente->id }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <input type="submit" value="Deletar" class="btn btn-danger">
@@ -72,21 +72,18 @@
             <input type="text" readonly class="form-control-plaintext text-dark fw-bold" id="endereco" value="{{$paciente->endereco}}">
           </div>
         </div>
-
         <div class="row mb-3">
           <label for="ultimaAtualizacao" class="col-sm-3 col-form-label text-decoration-underline">Última Atualização:</label>
           <div class="col-sm-9">
             <input type="text" readonly class="form-control-plaintext text-dark fw-bold" id="ultimaAtualizacao" value="{{$paciente->updated_at}}">
           </div>
         </div>
-
         <div class="row mb-3">
             <label for="altura" class="col-sm-3 col-form-label text-decoration-underline">Altura:</label>
             <div class="col-sm-9 d-flex align-items-center">
               <input type="text" readonly class="form-control-plaintext text-dark fw-bold" id="altura" value="{{$paciente->altura}}">
             </div>
         </div>
-
         <div class="row mb-3">
             <label for="peso" class="col-sm-3 col-form-label text-decoration-underline">Peso:</label>
             <div class="col-sm-9 d-flex align-items-center">

@@ -43,5 +43,38 @@ class PacienteController extends Controller
         $funcionario = Auth::guard('funcionario')->user();
         return view('paciente.show', ['paciente' => $paciente, 'funcionario' => $funcionario]);
     }
+
+    public function delete($id){
+        $paciente = Paciente::find($id);
+
+        if($paciente){
+            $paciente->delete();
+            return redirect('/paciente')->with('msg', 'Paciente deletado com sucesso');
+        }else{
+            return redirect('/paciente')->with('error', 'Error ao deletar Paciente');
+        }
+    }
+    
+    public function edit($id){
+        $paciente = Paciente::find($id);
+        $funcionario = Auth::guard('funcionario')->user();
+        return view('paciente.edit', ['paciente' => $paciente, 'funcionario' => $funcionario]);
+    }
+
+    public function put(Request $request,$id){
+        $pacienteNovo = Paciente::find($id);
+
+        $pacienteNovo->pnome = $request->input('pnome');
+        $pacienteNovo->unome = $request->input('unome');
+        $pacienteNovo->sexo = $request->input('sexo');
+        $pacienteNovo->contato = $request->input('contato');
+        $pacienteNovo->data_nasc = $request->input('dataNasc');
+        $pacienteNovo->endereco = $request->input('endereco') == '' ? null : $request->input('endereco');
+        $pacienteNovo->altura = $request->input('altura') == '' ? null : $request->input('altura');
+        $pacienteNovo->peso = $request->input('peso') == '' ? null : $request->input('peso');
+
+        $pacienteNovo->save();
+        return redirect('/paciente')->with('msg', 'Paciente Atualizado com sucesso');
+    }
 }
 
