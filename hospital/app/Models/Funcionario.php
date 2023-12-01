@@ -45,6 +45,27 @@ class Funcionario extends Authenticatable
     ];
 
     public function recepcao(){
-        return $this->hasOne('App\Models\Recepcao');
+        return $this->hasOne(Recepcao::class);
+    }
+
+    public function enfermagem(){
+        return $this->hasOne(Enfermagem::class);
+    }
+
+    public function medicina(){
+        return $this->hasOne(Medicina::class);
+    }
+
+    public function administrativo(){
+        return $this->hasOne(Administrativo::class);
     }
 }
+
+
+
+
+
+
+
+
+

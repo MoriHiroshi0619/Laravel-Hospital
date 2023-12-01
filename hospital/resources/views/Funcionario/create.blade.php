@@ -81,14 +81,39 @@
                         </select>
                     </div>
                 </div>
+
+                <div class="row mb-3" id="camposEnfermagem" style="display: none;">
+                    <label for="certificacao" class="col-sm-3 col-form-label text-decoration-underline">Especialidade:</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="certificacao" class="form-control" name="especialidade_enf" placeholder="Especialidade">
+                    </div>
+                </div>
+                <div class="row mb-3" id="camposEnfermagem2" style="display: none;">
+                    <label for="experiencia" class="col-sm-3 col-form-label text-decoration-underline">COREM:</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="experiencia" class="form-control" name="corem" placeholder="COREM">
+                    </div>
+                </div>
+
+                <div class="row mb-3" id="camposMedicina" style="display: none;">
+                    <label for="especialidade" class="col-sm-3 col-form-label text-decoration-underline">Especialidade:</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="especialidade" class="form-control" name="especialidade_me" placeholder="Especialidade">
+                    </div>
+                </div>
+                <div class="row mb-3" id="camposMedicina2" style="display: none;">
+                    <label for="CRM" class="col-sm-3 col-form-label text-decoration-underline">CRM:</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="CRM" class="form-control" name="crm" placeholder="CRM">
+                    </div>
+                </div>
+
+
                     <input type="submit" class="btn btn-primary" value="Adicionar Novo Funcionario">
                 </form>
             </div>
     </div>
 </div>
-
-
-
 
 <script>
     const form = document.getElementById('form');
@@ -105,6 +130,26 @@
             event.preventDefault(); 
             alert('O Contato deve conter apenas números.');
         }
+    });
+    $(document).ready(function() {
+        $('#cargo').change(function() {
+            var cargoSelecionado = $(this).val();
+            if (cargoSelecionado === 'Medicina') {
+                $('#camposMedicina').slideDown();
+                $('#camposMedicina2').slideDown();
+            } else {
+                $('#camposMedicina').slideUp();
+                $('#camposMedicina2').slideUp();
+            }
+            if (cargoSelecionado === 'Enfermagem') {
+                $('#camposEnfermagem').slideDown();
+                $('#camposEnfermagem2').slideDown();
+            } else {
+                $('#camposEnfermagem').slideUp();
+                $('#camposEnfermagem2').slideUp();
+            }
+
+        });
     });
 </script>
 
