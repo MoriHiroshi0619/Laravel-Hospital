@@ -15,13 +15,13 @@
                 <input type="submit" value="Cancelar" class="btn btn-danger">
             </form>
           </div>
-        <form action="/agenda" method="POST">
+        <form action="/agenda" method="POST" onsubmit="return validarData()">
             @csrf
             <div class="card-body">
                 <div class="row mb-3">
                     <label for="data" class="col-sm-3 col-form-label text-decoration-underline">Data:</label>
                     <div class="col-sm-9">
-                        <input type="date" id="data" class="form-control" name="data">
+                        <input type="date" id="data" class="form-control" name="data" required>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -66,6 +66,22 @@
             minLength: 2 
         });
     });
+    function validarData() {
+        // Pegar a data selecionada pelo usuário
+        var dataSelecionada = new Date(document.getElementById('data').value);
+        
+        // Pegar a data atual
+        var dataAtual = new Date();
+        
+        // Comparar as datas
+        if (dataSelecionada < dataAtual) {
+            alert('Selecione uma data futura.');
+            return false; // Impede o envio do formulário
+        }
+        
+        return true; // Permite o envio do formulário se a data for futura
+    }
+
 </script>
 
 @endsection
