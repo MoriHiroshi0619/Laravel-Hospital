@@ -77,7 +77,7 @@
                             <option value="Enfermagem">Enfermagem</option>
                             <option value="Medicina">Medicina</option>
                             <option value="Administrativo">Administrativo</option>
-                            <option value="Administrativo">Admin</option>
+                            <option value="Admin">Admin</option>
                         </select>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                 <div class="row mb-3" id="camposEnfermagem2" style="display: none;">
                     <label for="experiencia" class="col-sm-3 col-form-label text-decoration-underline">COREM:</label>
                     <div class="col-sm-9">
-                        <input type="text" id="experiencia" class="form-control" name="corem" placeholder="COREM">
+                        <input type="text" id="experiencia" class="form-control" name="corem" placeholder="COREM" minlength="11" maxlength="11">
                     </div>
                 </div>
 
@@ -104,7 +104,7 @@
                 <div class="row mb-3" id="camposMedicina2" style="display: none;">
                     <label for="CRM" class="col-sm-3 col-form-label text-decoration-underline">CRM:</label>
                     <div class="col-sm-9">
-                        <input type="text" id="CRM" class="form-control" name="crm" placeholder="CRM">
+                        <input type="text" id="CRM" class="form-control" name="crm" placeholder="CRM" minlength="11" maxlength="11">
                     </div>
                 </div>
 

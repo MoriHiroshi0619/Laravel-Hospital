@@ -15,8 +15,8 @@ return new class extends Migration
         Schema::create('enfermeira', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('especialidade', 30);
-            $table->string('corem', 11)->Unique();
+            $table->string('especialidade', 30)->nullable(true);
+            $table->string('corem', 11)->Unique()->nullable(true);
             $table->unsignedBigInteger('funcionario_id');
         });
     }

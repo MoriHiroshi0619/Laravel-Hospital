@@ -78,6 +78,70 @@
             <input type="text" readonly class="form-control-plaintext text-dark fw-bold" id="cargo" value="{{$funcionario->cargo}}">
           </div>
         </div>
+        @if ($funcionario->cargo == 'Medicina')
+            @if (optional($funcionario->medicina)->especialidade)
+                <div class="row mb-3">
+                    <label for="especialidade_me" class="col-sm-3 col-form-label text-decoration-underline">Especialidade:</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext text-dark fw-bold" id="especialidade_me" value="{{$funcionario->medicina->especialidade}}">
+                    </div>
+                </div>
+            @else 
+                <div class="row mb-3">
+                    <label for="especialidade_me" class="col-sm-3 col-form-label text-decoration-underline">Especialidade:</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext text-dark fw-bold" id="especialidade_me" value="">
+                    </div>
+                </div>            
+            @endif
+            @if(optional($funcionario->medicina)->crm)
+                <div class="row mb-3">
+                    <label for="crm" class="col-sm-3 col-form-label text-decoration-underline">CRM:</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext text-dark fw-bold" id="crm" value="{{$funcionario->medicina->crm}}">
+                    </div>
+                </div>
+            @else
+                <div class="row mb-3">
+                    <label for="crm" class="col-sm-3 col-form-label text-decoration-underline">CRM:</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext text-dark fw-bold" id="crm" value="">
+                    </div>
+                </div>
+            @endif
+        @endif
+        @if ($funcionario->cargo == 'Enfermagem')
+            @if (optional($funcionario->enfermagem)->especialidade)
+                <div class="row mb-3">
+                    <label for="especialidade_enf" class="col-sm-3 col-form-label text-decoration-underline">Especialidade:</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext text-dark fw-bold" id="especialidade_enf" value="{{$funcionario->enfermagem->especialidade}}">
+                    </div>
+                </div>
+            @else 
+                <div class="row mb-3">
+                    <label for="especialidade_enf" class="col-sm-3 col-form-label text-decoration-underline">Especialidade:</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext text-dark fw-bold" id="especialidade_enf" value="">
+                    </div>
+                </div>            
+            @endif
+            @if(optional($funcionario->enfermagem)->corem)
+                <div class="row mb-3">
+                    <label for="corem" class="col-sm-3 col-form-label text-decoration-underline">COREM:</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext text-dark fw-bold" id="corem" value="{{$funcionario->enfermagem->corem}}">
+                    </div>
+                </div>
+            @else
+                <div class="row mb-3">
+                    <label for="corem" class="col-sm-3 col-form-label text-decoration-underline">corem:</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext text-dark fw-bold" id="corem" value="">
+                    </div>
+                </div>
+            @endif
+        @endif
         <div class="row mb-3">
           <label for="ultimaAtualizacao" class="col-sm-3 col-form-label text-decoration-underline">Última Atualização:</label>
           <div class="col-sm-9">

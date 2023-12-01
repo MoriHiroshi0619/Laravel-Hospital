@@ -28,9 +28,15 @@ class uptadeCargos extends Command
     {
         $sql1 = "SELECT CreateRecepcionistaFromFuncionario();";
         $sql2 = "SELECT CreateAdminFromFuncionario();";
+        $sql3 = "SELECT CreateEnfermeiraFromFuncionario();";
+        $sql4 = "SELECT CreateMedicoFromFuncionario();";
+        $sql5 = "SELECT CreateAdministrativoFromFuncionario();";
         try {
             DB::statement($sql1);
             DB::statement($sql2);
+            DB::statement($sql3);
+            DB::statement($sql4);
+            DB::statement($sql5);
             $this->info('Procedure executed successfully!');
         } catch (\Exception $e) {
             $this->error('Error executing procedure: ' . $e->getMessage());

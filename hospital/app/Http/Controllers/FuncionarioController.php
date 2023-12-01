@@ -46,8 +46,17 @@ class FuncionarioController extends Controller
         
         $cargo = $funcionario->cargo;
         $id = $funcionario->id;
-        
-        DB::select("SELECT InsertIntoRoleTable('$cargo', $id)");
+        $crm = $request->input('crm');
+        $corem = $request->input('corem');
+        if($cargo == 'Medicina'){
+            $especialidade = $request->input('especialidade_me');
+            DB::select("SELECT InsertIntoRoleTable('$cargo', $id, '$especialidade', '$crm', '$corem')");
+        }else if($cargo == 'Enfermagem'){
+            $especialidade = $request->input('especialidade_enf');
+            DB::select("SELECT InsertIntoRoleTable('$cargo', $id, '$especialidade','$crm', '$corem')");
+        }else{
+            DB::select("SELECT InsertIntoRoleTable('$cargo', $id)");
+        }
 
         return redirect('/funcionario')->with('msg', 'Funcionario adicionado com sucesso');
 
@@ -56,6 +65,13 @@ class FuncionarioController extends Controller
     public function show($id){
         $f = Auth::guard('funcionario')->user();
         $funcionario = Funcionario::findOrFail($id);
+        if($funcionario->cargo == 'Medicina'){
+            $funcionario = Funcionario::with('medicina')->find($id);
+        }
+        if($funcionario->cargo == 'Enfermagem'){
+            $funcionario = Funcionario::with('enfermagem')->find($id);
+        }
+        
         return view('funcionario.show', ['funcionario' => $funcionario, 'f'=>$f]);
     }
 
@@ -90,6 +106,5 @@ class FuncionarioController extends Controller
         return redirect('/funcionario')->with('msg', 'Funcionário atualizado com sucesso');
     }
 }
-
 
 
