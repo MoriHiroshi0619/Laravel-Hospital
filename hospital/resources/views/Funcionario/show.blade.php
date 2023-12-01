@@ -8,9 +8,9 @@
 
 <div class="container mt-5" id="funcCard">
     <div class="card">
-      <div class="card-header d-flex align-items-center justify-content-between">
+      <div class="card-header d-flex flex-column flex-md-row  align-items-center justify-content-between">
         Informações do Funcionário
-        <div class="d-flex align-items-center">
+        {{-- <div class="d-flex align-items-center">
             <form action="/funcionario/editar/{{$funcionario->id}}" method="GET">
                 @csrf
                 <input type="submit" value="Editar" class="btn btn-primary">
@@ -21,7 +21,20 @@
                 <input type="submit" value="Deletar" class="btn btn-danger">
             </form>
             <a href="/funcionario" class="btn btn-secondary">Voltar</a>
+        </div> --}}
+        <div class="d-flex flex-column flex-md-row align-items-center mt-md-0 mt-2">
+            <form action="/funcionario/editar/{{$funcionario->id}}" method="GET" class="mb-md-0 mb-2">
+                @csrf
+                <input type="submit" value="Editar" class="btn btn-primary">
+            </form>
+            <form action="/funcionario/{{ $funcionario->id }}" method="POST" class="mb-md-0 mb-2">
+                @csrf
+                @method('DELETE')
+                <input type="submit" value="Deletar" class="btn btn-danger">
+            </form>
+            <a href="/funcionario" class="btn btn-secondary">Voltar</a>
         </div>
+        
       </div>
       <div class="card-body">
         <div class="row mb-3">

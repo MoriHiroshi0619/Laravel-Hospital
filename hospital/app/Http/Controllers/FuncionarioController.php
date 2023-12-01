@@ -71,7 +71,7 @@ class FuncionarioController extends Controller
         if($funcionario->cargo == 'Enfermagem'){
             $funcionario = Funcionario::with('enfermagem')->find($id);
         }
-        
+
         return view('funcionario.show', ['funcionario' => $funcionario, 'f'=>$f]);
     }
 
@@ -103,8 +103,24 @@ class FuncionarioController extends Controller
         $funcionarioNovo->endereco = $request->input('endereco') == '' ? null : $request->input('endereco');
         $funcionarioNovo->cargo = $request->input('cargo');
         $funcionarioNovo->save();
+
+        $cargo = $funcionarioNovo->cargo;
+        $id = $funcionarioNovo->id;
+        $crm = $request->input('crm');
+        $corem = $request->input('corem');
+        if($cargo == 'Medicina'){
+            $especialidade = $request->input('especialidade_me');
+            DB::select("SELECT AtualizarFuncionarioEnf_Me($id, '$cargo', '$especialidade', '$crm')");
+        }
+
+        if($cargo == 'Enfermagem'){
+            $especialidade = $request->input('especialidade_enf');
+            DB::select("SELECT AtualizarFuncionarioEnf_Me($id, '$cargo', '$especialidade', '$corem')");
+        }
+
         return redirect('/funcionario')->with('msg', 'Funcionário atualizado com sucesso');
     }
 }
+
 
 
