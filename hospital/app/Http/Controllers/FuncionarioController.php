@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Funcionario;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Recepcao;
+use Illuminate\Support\Facades\DB;
 class FuncionarioController extends Controller
 {
     public function index(){
@@ -44,11 +44,10 @@ class FuncionarioController extends Controller
 
         $funcionario->save();
         
-        if($funcionario->cargo == 'Recepção'){
-            $recepcao = new Recepcao();
-            $recepcao->funcionario_id = $funcionario->id;
-            $recepcao->save();
-        }
+        $cargo = $funcionario->cargo;
+        $id = $funcionario->id;
+        
+        DB::select("SELECT InsertIntoRoleTable('$cargo', $id)");
 
         return redirect('/funcionario')->with('msg', 'Funcionario adicionado com sucesso');
 
