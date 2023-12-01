@@ -36,6 +36,7 @@ Route::middleware(['recepcao'])->group(function () {
     Route::get('/agenda', [AgendouController::class, 'index']);
     Route::get('/agenda/criar', [AgendouController::class, 'create']);
     Route::post('/agenda', [AgendouController::class, 'store']);
+    Route::get('/agenda/{id}', [AgendouController::class, 'show']);
 });
 
 

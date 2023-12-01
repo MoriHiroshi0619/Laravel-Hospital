@@ -13,7 +13,7 @@ class AgendouController extends Controller
 {
     public function index(){
         $funcionario = Auth::guard('funcionario')->user();
-        $agendas = Agendou::all();
+        $agendas = Agendou::with('paciente')->get();
         return view('agenda.index', ['agendas' => $agendas, 'funcionario' => $funcionario]);
     }
 
@@ -39,5 +39,16 @@ class AgendouController extends Controller
         }else{
             return redirect('/agenda')->with('error', 'Erro ao Agendar Consulta');
         }
+    }
+
+    public function show($id){
+        $funcionario = Auth::guard('funcionario')->user();
+        //$agenda = Agendou::with('paciente')->find($id);
+        $agenda = Agendou::with([
+            'paciente',
+            'recepcionista.funcionario'
+        ])->find($id);
+    
+        return view('agenda.show', ['agenda' => $agenda, 'funcionario' => $funcionario]);
     }
 }

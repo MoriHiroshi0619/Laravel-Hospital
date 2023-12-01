@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Paciente extends Model
 {
     protected $table = 'paciente';
+
     use HasFactory;
+
+    public function agendou(){
+        return $this->hasMany(Agendou::class);
+    }
 }

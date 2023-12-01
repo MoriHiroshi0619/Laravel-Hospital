@@ -32,7 +32,8 @@
                 <tr>
                     <th>Data</th>
                     <th>Grau de Prioridade</th>
-                    <th>Paciente</th>
+                    <th>Paciente nome</th>
+                    <th>Paciente CPF</th>
                     <th>Saber mais</th>
                 </tr>
             </thead>
@@ -41,8 +42,9 @@
                     <tr>
                         <th>{{$a->data}}</th>
                         <th>{{$a->grau_prioridade}}</th>
-                        <th>{{$a->funcionario_id}}</th>
-                        <th><a href="/paciente/{{ $a->funcionario_id }}" class="nav-link"><i class="bi bi-info-square-fill" style="font-size: 2rem"></i></a></th>
+                        <th>{{$a->paciente->pnome}}</th>
+                        <th>{{$a->paciente->cpf}}</th>
+                        <th><a href="/agenda/{{ $a->id }}" class="nav-link"><i class="bi bi-info-square-fill" style="font-size: 2rem"></i></a></th>
                     </tr>
                 @endforeach
             </tbody>

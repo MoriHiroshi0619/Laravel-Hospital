@@ -21,16 +21,6 @@ class AdminAccess
         }
         
         return redirect('/login')->with('error', 'Apenas usuários Admin podem acessar essa rota'); 
-
-        /* if (!Auth::guard('funcionario')->check()) {
-            return redirect('/login')->with('error', 'Você precisa logar no sistema primeiro');
-        }
-
-        if (Auth::guard('funcionario')->user()->cargo != 'Admin') {
-            return redirect('/login')->with('error', 'Apenas usuários Admin podem acessar essa rota');
-        }
-        
-        return $next($request); */
     
     }
 }

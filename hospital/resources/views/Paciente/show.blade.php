@@ -73,22 +73,22 @@
           </div>
         </div>
         <div class="row mb-3">
-          <label for="ultimaAtualizacao" class="col-sm-3 col-form-label text-decoration-underline">Última Atualização:</label>
-          <div class="col-sm-9">
-            <input type="text" readonly class="form-control-plaintext text-dark fw-bold" id="ultimaAtualizacao" value="{{$paciente->updated_at}}">
-          </div>
-        </div>
-        <div class="row mb-3">
             <label for="altura" class="col-sm-3 col-form-label text-decoration-underline">Altura:</label>
             <div class="col-sm-9 d-flex align-items-center">
-              <input type="text" readonly class="form-control-plaintext text-dark fw-bold" id="altura" value="{{$paciente->altura}}">
+                <input type="text" readonly class="form-control-plaintext text-dark fw-bold" id="altura" value="{{$paciente->altura}}">
             </div>
         </div>
         <div class="row mb-3">
             <label for="peso" class="col-sm-3 col-form-label text-decoration-underline">Peso:</label>
             <div class="col-sm-9 d-flex align-items-center">
-              <input type="text" readonly class="form-control-plaintext text-dark fw-bold me-2" id="peso" value="{{$paciente->peso}}">
+                <input type="text" readonly class="form-control-plaintext text-dark fw-bold me-2" id="peso" value="{{$paciente->peso}}">
             </div>
+        </div>
+        <div class="row mb-3">
+          <label for="ultimaAtualizacao" class="col-sm-3 col-form-label text-decoration-underline">Última Atualização:</label>
+          <div class="col-sm-9">
+            <input type="text" readonly class="form-control-plaintext text-dark fw-bold" id="ultimaAtualizacao" value="{{$paciente->updated_at}}">
+          </div>
         </div>
       </div>
     </div>

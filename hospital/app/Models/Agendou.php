@@ -10,7 +10,13 @@ class Agendou extends Model
     protected $table = 'agendou';
     use HasFactory;
 
-    public function repecepcao(){
-        return $this->belongsTo('App\models\Recepcao');
+    public function recepcionista(){
+        return $this->belongsTo(Recepcao::class);
     }
+
+    public function paciente()
+    {
+        return $this->belongsTo(Paciente::class);
+    }
+
 }
