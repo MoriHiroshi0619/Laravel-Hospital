@@ -11,7 +11,7 @@
       <div class="card-header d-flex align-items-center justify-content-between">
         Informações do agendamento da consulta
         <div class="d-flex align-items-center">
-            <form action="/#/{{ $agenda->id }}" method="POST">
+            <form action="/agenda/{{ $agenda->id }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <input type="submit" value="Deletar" class="btn btn-danger">

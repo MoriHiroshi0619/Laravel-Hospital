@@ -51,4 +51,14 @@ class AgendouController extends Controller
     
         return view('agenda.show', ['agenda' => $agenda, 'funcionario' => $funcionario]);
     }
+
+    public function delete($id){
+        $agenda = Agendou::find($id);
+        if($agenda){
+            $agenda->delete();
+            return redirect('/agenda')->with('msg', 'Agenda de Consulta Deletado com sucesso');
+        }else{
+            return redirect('/agenda')->with('error', 'Error ao deletar Agenda de Consulta');
+        }
+    }
 }

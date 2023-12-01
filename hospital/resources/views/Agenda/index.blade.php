@@ -19,7 +19,9 @@
                     <a href="/funcionario" class="btn btn-secondary">Ver Todos os Funcionarios</a>
                 @endif
                 <a href="/paciente" class="btn btn-secondary">Ver todos os Pacientes</a>
-                <a href="/agenda/criar" class="btn btn-success">Agendar consulta</a>
+                @if ($funcionario->cargo == 'Recepção')
+                    <a href="/agenda/criar" class="btn btn-success">Agendar consulta</a>
+                @endif
             </div>
         </div>
     </div>
