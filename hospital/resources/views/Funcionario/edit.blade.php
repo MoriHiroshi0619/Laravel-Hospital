@@ -147,14 +147,14 @@
                 <div class="row mb-3">
                     <label for="crm" class="col-sm-3 col-form-label text-decoration-underline">CRM:</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control text-dark fw-bold" name="crm" id="crm" value="{{$funcionario->medicina->crm}}">
+                        <input type="text" class="form-control text-dark fw-bold" name="crm" id="crm" maxlength="11" minlength="11" value="{{$funcionario->medicina->crm}}">
                     </div>
                 </div>
             @else
                 <div class="row mb-3">
                     <label for="crm" class="col-sm-3 col-form-label text-decoration-underline">CRM:</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control text-dark fw-bold" name="crm" id="crm" value="">
+                        <input type="text" class="form-control text-dark fw-bold" name="crm" id="crm" maxlength="11" minlength="11"  value="">
                     </div>
                 </div>
             @endif
@@ -179,14 +179,14 @@
                 <div class="row mb-3">
                     <label for="corem" class="col-sm-3 col-form-label text-decoration-underline">COREM:</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control text-dark fw-bold" name="corem" id="corem" value="{{$funcionario->enfermagem->corem}}">
+                        <input type="text" class="form-control text-dark fw-bold" name="corem" id="corem" maxlength="11" minlength="11"  value="{{$funcionario->enfermagem->corem}}">
                     </div>
                 </div>
             @else
                 <div class="row mb-3">
                     <label for="corem" class="col-sm-3 col-form-label text-decoration-underline">corem:</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control text-dark fw-bold"  name="corem" id="corem" value="">
+                        <input type="text" class="form-control text-dark fw-bold"  name="corem" id="corem" maxlength="11" minlength="11"  value="">
                     </div>
                 </div>
             @endif
